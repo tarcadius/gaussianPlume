@@ -32,7 +32,6 @@ class stabilityClass:
     def __init__(self,letter):
         self.letter = letter
 
-        
         if letter == 'A':
             Iy = -1.104
             Jy = 0.9878
@@ -69,8 +68,8 @@ class stabilityClass:
             Jz = 1.1737
             Kz = -0.0316
 
-        elif letter_ == 'E':
-            Iy = -2.754 
+        elif letter == 'E':
+            Iy = -2.754
             Jy = 1.0106
             Ky = -0.0064
 
