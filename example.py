@@ -1,27 +1,23 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import gaussianPlume
-
-rates = np.array([0.004,0.04, 0.4, 4.0])
+import GaussianPlume
 
 rate = 4. # g/s/m2
 H = 1. # m
-U = 3 # m/s
+U = 3. # m/s
 xGrid = np.linspace(0.1,2000,100) # m
 yGrid = np.linspace(-150,150,100) # m
-zGrid = 2. #m
+zGrid = 1. #m
 
-areaSource = gaussianPlume.areaSource(0,1,50,-100,10,20,0,rate,H)
-pointSource = gaussianPlume.pointSource(0,0,0,rate,H)
-grid = gaussianPlume.receptorGrid(xGrid,yGrid,zGrid)
-stability = gaussianPlume.stabilityClass('D')
+areaSource = GaussianPlume.areaSource(0,1,50,-100,10,20,0,rate,H)
+pointSource = GaussianPlume.pointSource(0,0,0,rate,H)
+grid = GaussianPlume.receptorGrid(xGrid,yGrid,zGrid)
+stability = GaussianPlume.stabilityClass('D')
 
-a = gaussianPlume.gaussianPlume(pointSource,grid,stability,U)
+a = GaussianPlume.gaussianPlume(pointSource,grid,stability,U)
 
 concField = a.calculateConcentration()
 concField_ppm = (concField*1000*24.45)/16.04
-
-end = 5
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -36,3 +32,4 @@ ax.set_xlabel('X [m]')
 ax.set_ylabel('Y [m]')
 
 fig.show()
+
